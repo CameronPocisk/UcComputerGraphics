@@ -170,8 +170,9 @@
 
   // do nothing for now....
     document.addEventListener("keydown", (event) => {
-
+      console.log(event);
       event.preventDefault();
+      
        switch (event.key) {
         case "ArrowUp":
           //****TO DO: Change camera z position a go closer
@@ -188,19 +189,22 @@
         case "ArrowLeft":
           //****TO DO: Change camera x position move left
           console.log("Left arrow pressed");
-          camera.y -= .1; // This makes the camera go left (object is moves right relatively)
+          camera.y -= .05; // This makes the camera go left (object is moves right relatively)
           draw();
           break;
         case "ArrowRight":
           //****TO DO: Change camera x position move right
           console.log("Right arrow pressed");
-          camera.y += .1; // This makes the camera go right (object is moves left relatively)
+          camera.y += .05; // This makes the camera go right (object is moves left relatively)
           draw();
           break;
+          // I had problems getting the event to fire w just "KeyR"
         case "KeyR":
+        case 'r':
+        case 'R':
           //****TO DO: reset camera
           console.log("Reset"); // Print not happening.
-          camera.x = cameraDefault.x;
+          camera.x = cameraDefault.x; // copy the values so we dont confuse the object
           camera.y = cameraDefault.y;
           camera.z = cameraDefault.z;
           draw();
